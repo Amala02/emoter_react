@@ -2,10 +2,10 @@ import React from "react";
 import  { useState, useEffect } from 'react';
 import { ReactDOM } from "react";
 import {BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+import Home from "./Home";
 
 
-
-import "./App.css";
 
 export default function App(){
 
