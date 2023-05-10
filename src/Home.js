@@ -7,12 +7,18 @@ export default function Home(){
 	return(
 
 		<div id="home-wrap">
-			<div id="chat-bot">
-				ChatBot
+			<div id="content">
+				<div id="chat-bot">
+					ChatBot
+				</div>
+				<div id="music-player">
+					MusicPlayer
+				</div>
 			</div>
-			<div id="music-player">
-				MusicPlayer
+			<div id='footer'>
+				emoter
 			</div>
+
 		</div>
 	)
 }

@@ -1,6 +1,12 @@
-#home-wrap{
+#content{
 	position: flex;
-	
+	flex:1;
+}
+
+body{
+	min-height: 100vh;
+	margin:0;
+	display:flex; flex-direction:column;
 }
 
 
@@ -11,14 +17,30 @@
 		height:300px;
 		background-color:aqua;
 		float:left;
+		padding-left: 30px;
+		background-clip: content-box;
+		padding:20px;
 	}
 	
 	#music-player{
 		width: 300px;
 		height:250px;
 		background-color:gray;
-		float:right;
+		float:left;
+		padding-left: 30px;
+		background-clip: content-box;
+		padding:20px;
 	}
+
+	#footer{
+	 clear: both;
+    position: relative;
+	
+	min-height:100px; background:PapayaWhip;
+	display:block;
+	padding-top: 90%;
+	background-clip: content-box;
+}
 }
 
 @media(max-width:1000px){
@@ -27,14 +49,30 @@
 		height:300px;
 		background-color:aqua;
 		flex-direction: column;
+		padding-left: 30px;
+		background-clip: content-box;
+		padding:20px;
 	}
 	
 	#music-player{
 		width: 500px;
 		height:300px;
+		padding-top: 30px;
+		padding-left: 30px;
+		background-clip: content-box;
 		background-color:gray;
 		flex-direction: column;
+		padding:20px;
 	}
+	#footer{
+		clear: both;
+	   position: relative;
+	   
+	   min-height:100px; background:PapayaWhip;
+	   display:block;
+	   padding-top: 90%;
+	   background-clip: content-box;
+   }
 }
 
 
