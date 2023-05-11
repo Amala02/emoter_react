@@ -4,9 +4,27 @@ import { ReactDOM } from "react";
 
 import './Home.css';
 export default function Home(){
+	window.onscroll= function(){HeaderScroll()};
+
+var header=document.getElementById("header")
+var sticky =header.offsetTop;
+
+function HeaderScroll(){
+	if(window.pageYOffset>sticky){
+		header.classList.add("sticky");
+	}
+	else{
+		header.classList.remove("sticky");
+
+	}
+}
+	
 	return(
 
 		<div id="home-wrap">
+			<div id='header'>
+				Emoter
+			</div>
 			<div id="content">
 				<div id="chat-bot">
 					ChatBot
@@ -16,9 +34,11 @@ export default function Home(){
 				</div>
 			</div>
 			<div id='footer'>
-				emoter
+				reach out!
 			</div>
 
 		</div>
 	)
 }
+
+

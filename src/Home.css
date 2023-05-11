@@ -10,6 +10,21 @@ body{
 }
 
 
+.sticky{
+	position:fixed;
+	top:0;
+	width:100%;
+}
+#header{
+	height:100px;
+	background-color: yellow;
+	position: sticky;
+}
+
+.sticky + #header{
+	padding-top:90px;
+}
+
 @media  (min-width:1000px){
 	
 	#chat-bot{
@@ -44,6 +59,7 @@ body{
 }
 
 @media(max-width:1000px){
+	
 	#chat-bot{
 		width:500px;
 		height:300px;
