@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa&family=Montserrat&family=Poppins&family=Raleway:wght@500&display=swap');
 #content{
 	position: flex;
 	flex:1;
@@ -7,6 +8,7 @@ body{
 	min-height: 100vh;
 	margin:0;
 	display:flex; flex-direction:column;
+	background-color:#332855;
 }
 
 
@@ -17,8 +19,26 @@ body{
 }
 #header{
 	height:100px;
-	background-color: yellow;
+	background-color: #191825;
 	position: sticky;
+	color:#5B8FB9;
+	
+    width: 100%;
+	font-size:470%;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+	box-shadow:
+	  inset #5B8FB9 0 0 0 3px, 
+    inset #9ec4ef 0 0 0 1px, 
+    inset #5B8FB9 0 0 0 4px, 
+    
+    inset #8ce9ff 0 0 0 5px, 
+    
+    inset #B6EADA 0 0 0 6px, 
+    inset #B6EADA 0 0 0 7px;
+  text-shadow: 3px 3px 1px #B6EADA;
+
+	
 }
 
 .sticky + #header{
@@ -30,7 +50,7 @@ body{
 	#chat-bot{
 		width:500px;
 		height:300px;
-		background-color:aqua;
+		background-color:#5B8FB9;
 		float:left;
 		padding-left: 30px;
 		background-clip: content-box;
@@ -40,22 +60,14 @@ body{
 	#music-player{
 		width: 300px;
 		height:250px;
-		background-color:gray;
+		background-color:#5B8FB9;
 		float:left;
 		padding-left: 30px;
 		background-clip: content-box;
 		padding:20px;
 	}
 
-	#footer{
-	 clear: both;
-    position: relative;
-	
-	min-height:100px; background:PapayaWhip;
-	display:block;
-	padding-top: 90%;
-	background-clip: content-box;
-}
+
 }
 
 @media(max-width:1000px){
@@ -63,7 +75,7 @@ body{
 	#chat-bot{
 		width:500px;
 		height:300px;
-		background-color:aqua;
+		background-color:#5B8FB9;
 		flex-direction: column;
 		padding-left: 30px;
 		background-clip: content-box;
@@ -76,19 +88,25 @@ body{
 		padding-top: 30px;
 		padding-left: 30px;
 		background-clip: content-box;
-		background-color:gray;
+		background-color:#5B8FB9;
 		flex-direction: column;
 		padding:20px;
 	}
-	#footer{
-		clear: both;
-	   position: relative;
-	   
-	   min-height:100px; background:PapayaWhip;
-	   display:block;
-	   padding-top: 90%;
-	   background-clip: content-box;
-   }
-}
 
+   }
+
+   #footer{
+	clear: both;
+   position: relative;
+   color:#5B8FB9;
+
+   text-shadow:#03001C;
+   font-size: 20px;
+   min-height:100px; background:#191825;
+   display:block;
+   padding-top: 90%;
+   background-clip: content-box;
+   font-family: 'Montserrat', sans-serif;
+   word-wrap: normal;
+}
 
