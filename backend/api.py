@@ -16,10 +16,11 @@ tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
 
 
 
-@app.route('/predict/<string:msg>' ,methods=["POST"])
-def predict(msg):
-  
-        string_text= json.loads(msg)
+@app.route('/Predict' ,methods=['POST', 'GET'])
+def Predict():
+    if request.method == 'POST':    
+        data=request.get_json()
+        string_text= data['sentence']
         print(string_text)
         tokenized_text= tokenizer(
         text=string_text,
@@ -37,7 +38,7 @@ def predict(msg):
         print(output)
         print(lst)
         
-    
+        return jsonify({})
 
 
 
@@ -46,9 +47,9 @@ def predict(msg):
 
 
 
-@app.route('/suggest/<string:msg>' ,methods=["POST"])
-def suggest(msg):
-            string_text= json.loads(msg)
+@app.route('/Suggest' ,methods=['GET'])
+def Suggest():
+            
             global lst2 
             lst2 = np.array(lst)
             if ((lst2==1).sum())>((lst2==2).sum() or (lst2==3).sum() or (lst2==4).sum() or (lst2==5).sum()):
@@ -69,9 +70,11 @@ def suggest(msg):
 
             
 
-            return{"pred":pred}
+            return {"pred":pred}
 
 
 
 
 
+if __name__=='__main__':
+    app.run(host="0.0.0.0", threaded=True, port=5000)

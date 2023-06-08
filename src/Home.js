@@ -8,38 +8,64 @@ import './Home.css';
 
 
 export default function Home(){
-	const [musicData, setMusic] = useState(0)
-	function suggest() {
+	/* let p=0;
+	const [musicData, setMusicData] = useState(null)
+
+	 function Suggest() {
+	   axios({
+		 method: "GET",
+		 url:"/suggest",
+	   })
+	   .then((response) => {
+		 const res =response.data
+		 setMusicData(({
+		   music: res.pred,
+		   }))
+	   })}
+		
+	function Predict(){
 		var msg=document.getElementById("message").value
 		const request = new XMLHttpRequest()
-		request.open('POST', `/suggest/${JSON.stringify(msg)}`)
+		request.post('http://localhost:5000/Predict/${JSON.stringify(msg)}')
 		request.send();
-		axios({
-		  method: "POST",
-		  url:"/suggest",
-		})
-		.then((response) => {
-		  let res =response.data
-		  setMusic(({
-			music: res.pred
-			}))
-		})}
+	}
+	*/	
+
+	//for predicting values:
 	
-		function predict() {
+	const Predict= async(e)=>{
+		e.preventDefault()
+		try{
 			var msg=document.getElementById("message").value
-			const request = new XMLHttpRequest()
-			request.open('POST', `/predict/${JSON.stringify(msg)}`)
-			request.send();
-			axios({
-			  method: "POST",
-			  url:"/predict",
-			})
-			.then((response) => {
-			  const res =response.data
-			  setMusic(({music:0
-				
-				}))
-			})}
+			const res= await axios.post('http://localhost:5000//Predict',{"sentence": msg})
+			console.log(res.data)
+		}catch(e){
+			alert(e)
+		}
+	}
+
+	
+
+
+	const [musicData, setMusicData] = useState(null)
+
+	function Suggest() {
+	  axios({
+		method: "GET",
+		url:"http://localhost:5000//Suggest",
+	  })
+	  .then((response) => {
+		const res =response.data
+		setMusicData(({
+		  music: res.pred
+		}))
+	  }).catch((error) => {
+		if (error.response) {
+		  console.log(error.response)
+		  console.log(error.response.status)
+		  console.log(error.response.headers)
+		  }
+	  })}
 	return(
 
 		<div id="home-wrap">
@@ -54,12 +80,11 @@ export default function Home(){
 						<textarea id="message" rows="6" cols="50"></textarea>
 						<br/>
 
-						<input type="submit" class="btn-info" value="predict" onClick={predict}></input>
-		
+						<input type="submit" class="btn-info" value="predict" onClick={Predict}></input>
 					</form>
 					<form method="POST">
 					<br/>
-						<input type="submit" class="btn-info" value="suggest" onClick={suggest}></input>
+						<input type="submit" class="btn-info" value="suggest" onClick={Suggest}></input>
 		
 					</form>
 
@@ -67,9 +92,14 @@ export default function Home(){
 				</div>
 				<div id="music-player">
 					MusicPlayer
-					<p>{musicData.music}</p>
+				{musicData && 
+					<p>
+					{musicData.music}
+					</p>
+				}
               			
-              
+					
+
             	
         
 				</div>
@@ -82,5 +112,4 @@ export default function Home(){
 		</div>
 	)
 }
-
 
