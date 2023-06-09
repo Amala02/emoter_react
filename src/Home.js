@@ -37,7 +37,7 @@ export default function Home(){
 		e.preventDefault()
 		try{
 			var msg=document.getElementById("message").value
-			const res= await axios.post('http://localhost:5000//Predict',{"sentence": msg})
+			const res= await axios.post('http://127.0.0.1:5000//Predict',{"sentence": msg})
 			console.log(res.data)
 		}catch(e){
 			alert(e)
@@ -47,25 +47,40 @@ export default function Home(){
 	
 
 
-	const [musicData, setMusicData] = useState(null)
+	const [data, setMusicData] = useState('');
 
-	function Suggest() {
-	  axios({
+	useEffect(()=>{
+		Suggest();
+	},[]);
+
+	const Suggest=()=>{
+		axios
+		.get("http://localhost:5000//Suggest")
+		.then((result) => {
+		  console.log(result.data);
+		  setMusicData(result.data);
+		})
+		.catch((error) => console.log(error));
+	}
+	
+	
+
+
+	/*function Suggest() {
+	 axios({
 		method: "GET",
-		url:"http://localhost:5000//Suggest",
+		url:"http://127.0.0.1:5000/Suggest",
 	  })
 	  .then((response) => {
 		const res =response.data
 		setMusicData(({
 		  music: res.pred
 		}))
-	  }).catch((error) => {
-		if (error.response) {
-		  console.log(error.response)
-		  console.log(error.response.status)
-		  console.log(error.response.headers)
-		  }
-	  })}
+	  })} */
+	  
+
+
+	
 	return(
 
 		<div id="home-wrap">
@@ -92,11 +107,11 @@ export default function Home(){
 				</div>
 				<div id="music-player">
 					MusicPlayer
-				{musicData && 
+				
 					<p>
-					{musicData.music}
+					{data.pred}
 					</p>
-				}
+				
               			
 					
 

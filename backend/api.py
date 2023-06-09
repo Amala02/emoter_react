@@ -1,5 +1,7 @@
 from flask import Flask,request,jsonify,render_template
 from flask import Flask, redirect, url_for, request
+from flask_cors import CORS, cross_origin
+
 import pickle
 import tensorflow as tf
 from numpy import argmax
@@ -7,6 +9,7 @@ import numpy as np
 import json
 
 app=Flask(__name__)
+CORS(app)
 import transformers
 model=tf.keras.models.load_model('model.h5',custom_objects={"TFBertModel": transformers.TFBertModel})
 lst=[]
@@ -46,10 +49,10 @@ def Predict():
 
 
 
-
+CORS(app)
 @app.route('/Suggest' ,methods=['GET'])
 def Suggest():
-            
+        if request.method == 'GET':  
             global lst2 
             lst2 = np.array(lst)
             if ((lst2==1).sum())>((lst2==2).sum() or (lst2==3).sum() or (lst2==4).sum() or (lst2==5).sum()):
@@ -70,7 +73,7 @@ def Suggest():
 
             
 
-            return {"pred":pred}
+            return jsonify({"pred":pred})
 
 
 
