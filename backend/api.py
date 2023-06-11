@@ -1,7 +1,7 @@
 from flask import Flask,request,jsonify,render_template
 from flask import Flask, redirect, url_for, request
 from flask_cors import CORS, cross_origin
-
+import pandas
 import pickle
 import tensorflow as tf
 from numpy import argmax
