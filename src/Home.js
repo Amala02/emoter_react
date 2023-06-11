@@ -4,6 +4,7 @@ import { ReactDOM } from "react";
 import axios from "axios";
 import './Home.css';
 
+import  { Spotify } from "react-spotify-embed";
 
 
 
@@ -53,7 +54,7 @@ export default function Home(){
 		Suggest();
 	},[]);
 
-	const Suggest=()=>{
+	/*const Suggest=()=>{
 		axios
 		.get("http://localhost:5000//Suggest")
 		.then((result) => {
@@ -62,8 +63,20 @@ export default function Home(){
 		})
 		.catch((error) => console.log(error));
 	}
-	
-	
+	*/
+	const Suggest= async(e)=>{
+		e.preventDefault()
+		try{
+			axios
+		.get("http://127.0.0.1:5000//Suggest")
+		.then((result) => {
+		  console.log(result.data);
+		  setMusicData(result.data);
+		})
+		}catch(e){
+			alert(e)
+		}
+	}
 
 
 	/*function Suggest() {
@@ -78,7 +91,36 @@ export default function Home(){
 		}))
 	  })} */
 	  
+	  function play(datam) {
+		const isval = datam
+		if (isval==="calm") {
+		  return <Spotify link="https://open.spotify.com/playlist/37i9dQZF1DX50QitC6Oqtn" />;
+		}
 
+		if (isval==="sad but angry") {
+		  return <Spotify link="https://open.spotify.com/playlist/74uGT3GHDg0fsDoiZuHGZu" />;
+		}
+		if (isval==="calm songs") {
+			return <Spotify link="https://open.spotify.com/playlist/6f9nZmbYGY8jnoR5QTrSz4" />;
+		  }
+		if (isval==="happy love") {
+		  return <Spotify link="https://open.spotify.com/playlist/37i9dQZF1EIgnXj6uD4zub" />;
+		}
+		if (isval==="sad but angry") {
+			return <Spotify link="https://open.spotify.com/playlist/74uGT3GHDg0fsDoiZuHGZu" />;
+		  }
+		if (isval==="heartbreak") {
+			return <Spotify link="https://open.spotify.com/playlist/37i9dQZF1DXbrUpGvoi3TS" />;
+		}  
+		if (isval==="chill") {
+			return <Spotify link="https://open.spotify.com/playlist/37i9dQZF1DX4WYpdgoIcn6" />;
+		}  
+		if (isval==="random") {
+			return <Spotify link="https://open.spotify.com/playlist/37i9dQZEVXbNG2KDcFcKOF" />;
+		}  
+	  }
+	  
+	  
 
 	
 	return(
@@ -105,26 +147,22 @@ export default function Home(){
 
 				
 				</div>
+				
 				<div id="music-player">
-					MusicPlayer
-				
-					<p>
-					{data.pred}
-					</p>
-				
-              			
-					
 
-            	
-        
+				{play(data.pred)}
+
 				</div>
+				
 			</div>
 			<div id='footer'>
+
 				<p>Got any suggestions or feedbacks?</p>
 				<p>Reach out to us @:</p>
 			</div>
 
 		</div>
+		
 	)
 }
 

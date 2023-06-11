@@ -2,7 +2,7 @@
   "name": "emoter_react",
   "version": "0.1.0",
   "private": true,
-  "proxy":"localhost:5000",
+  "proxy": "http://127.0.0.1:5000/",
   "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -15,6 +15,7 @@
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
+    "react-spotify-embed": "^2.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -23,7 +24,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": [
