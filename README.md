@@ -9,4 +9,4 @@ Emoter is an emotion detection model that can predict user emotions based off of
 - More features to be added to the model
 ---
 
-[Please head to the original Emoter repository to see the working model as this is in progress]
+### FIRST PHASE COMPLETED. TO INTEGRATE CHATBOT NEXT
