@@ -155,10 +155,14 @@ export default function Home(){
 				</div>
 				
 			</div>
+
+			<div id="about">
+				Emoter is an application employed with BERT model for assisting your emotional needs. Whether it be books or songs, EmoTer can be your support guide!
+			</div>
 			<div id='footer'>
 
 				<p>Got any suggestions or feedbacks?</p>
-				<p>Reach out to us @:</p>
+				<p>Reach out to us @: <ul><li>shwetahamala@gmail.com</li><li>leofranklinjohn.25cs@licet.ac.in</li></ul></p>
 			</div>
 
 		</div>
