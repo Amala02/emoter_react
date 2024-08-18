@@ -8,7 +8,6 @@ Emoter is an emotion detection model that can predict user emotions based off of
 - More features to be added to the model
 ---
 
-### FIRST PHASE COMPLETED. TO INTEGRATE CHATBOT NEXT
 
 ## Running the Model and Application on your local device
 - Clone the GitHub repository
